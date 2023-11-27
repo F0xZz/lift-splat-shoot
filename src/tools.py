@@ -180,6 +180,7 @@ def gen_dx_bx(xbound, ybound, zbound):
 
 
 def cumsum_trick(x, geom_feats, ranks):
+    # 1:00:00方向 是个累加过程
     x = x.cumsum(0)
     kept = torch.ones(x.shape[0], device=x.device, dtype=torch.bool)
     kept[:-1] = (ranks[1:] != ranks[:-1])
